@@ -1,0 +1,11 @@
+<!DOCTYPE html><html><head>
+  <meta http-equiv="refresh" content="0; url=/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head><body>
+  <script>
+    const r = sessionStorage.redirect;
+    if (r) { sessionStorage.removeItem('redirect'); history.replaceState(null,null,r); }
+    else { const l = location; sessionStorage.redirect = l.pathname + l.search + l.hash; location.replace('/'); }
+  </script>
+  </body></html>
+  
