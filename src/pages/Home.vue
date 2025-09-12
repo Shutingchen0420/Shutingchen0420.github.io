@@ -31,7 +31,7 @@
   const cards = [
     { title: '展覽主視覺', subtitle: 'Graphic / Poster',       to: { name: 'projects' } },
     { title: '品牌形象網站', subtitle: 'UI / Web',              to: { name: 'projects' } },
-    { title: '教育圖示集',   subtitle: 'Icon / Illustration',   to: { name: 'projects' } },
+    { title: '研究',   subtitle: 'Icon / Illustration',   to: { name: 'projects' } },
   ]
   </script>
   
