@@ -3,7 +3,7 @@
     <v-sheet class="pa-8" rounded="xl" elevation="1">
       <div class="text-h4 font-weight-bold mb-2">嗨，我是 Shuting</div>
       <div class="text-body-1 text-medium-emphasis mb-6">
-        視覺／UI 設計師，這裡是我的個人作品集網站（Vue 3 + Vuetify）。
+        這裡是我的個人作品集網站。
       </div>
       <div class="d-flex gap-3">
         <v-btn color="primary" :to="{ name: 'projects' }" prepend-icon="mdi-briefcase">查看作品</v-btn>
@@ -29,9 +29,9 @@
   
   <script setup>
   const cards = [
-    { title: '展覽主視覺', subtitle: 'Graphic / Poster',       to: { name: 'projects' } },
-    { title: '品牌形象網站', subtitle: 'UI / Web',              to: { name: 'projects' } },
-    { title: '研究',   subtitle: 'Icon / Illustration',   to: { name: 'projects' } },
+    { title: 'UI 設計', subtitle: 'UI / Web',       to: { name: 'projects' } },
+    { title: '視覺設計', subtitle: 'Graphic / Poster',              to: { name: 'projects' } },
+    { title: '研究',   subtitle: 'MR / HoloLens / 點雲',   to: { name: 'projects' } },
   ]
   </script>
   
