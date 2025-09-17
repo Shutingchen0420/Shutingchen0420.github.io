@@ -8,7 +8,7 @@
     </v-main>
     <v-footer app class="py-6">
       <v-container class="text-center text-medium-emphasis">
-        © {{ new Date().getFullYear() }} Shuting — Built with Vue & Vuetify
+        © {{ new Date().getFullYear() }} Shuting 
       </v-container>
     </v-footer>
   </v-app>
