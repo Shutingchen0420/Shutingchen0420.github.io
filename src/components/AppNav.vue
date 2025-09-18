@@ -53,7 +53,7 @@ const items = [
   { name: 'home', label: 'Home', to: { name: 'home' } },
   { name: 'projects', label: 'Projects', to: { name: 'projects' } },
   { name: 'about', label: 'About', to: { name: 'about' } },
-  { name: 'contact', label: 'Contact', to: { name: 'contact' } },
+  //{ name: 'contact', label: 'Contact', to: { name: 'contact' } },
 ]
 
 // 只有當前頁亮色；/projects/xxx 也算在 Projects 底下
