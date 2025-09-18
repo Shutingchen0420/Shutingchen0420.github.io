@@ -12,5 +12,11 @@ const routes = [
 export default createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes,
-  scrollBehavior: () => ({ top: 0 }),
+  scrollBehavior(to, from, saved) {
+    if (to.hash) {
+      return { el: to.hash, top: 80, behavior: 'smooth' } // 視你的 AppBar 高度調整 top
+    }
+    if (saved) return saved
+    return { top: 0 }
+  }
 })

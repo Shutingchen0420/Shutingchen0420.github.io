@@ -43,5 +43,5 @@
 import { projects } from '../data/projects'
 
 // 想只顯示前三個：const cards = projects.slice(0, 3)
-const cards = projects
+const cards = projects.slice(0, 3)
 </script>
