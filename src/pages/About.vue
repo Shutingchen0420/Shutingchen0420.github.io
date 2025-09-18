@@ -53,11 +53,11 @@
           <v-card-text>
             <v-timeline side="end" density="compact">
               <v-timeline-item dot-color="primary" size="small">
-                <div class="font-weight-medium">輔導老師 · 台灣拓人</div>
+                <div class="font-weight-medium">個別指導員 · 台灣拓人</div>
                 <div class="text-medium-emphasis text-body-2">2023 — 2025 · 新北</div>
                 <ul class="mt-2 text-body-2">
-                  <li>建立設計系統（色彩/元件/動態），縮短 30% 開發溝通</li>
-                  <li>負責品牌形象網站與行銷素材，維持跨平台一致性</li>
+                  <li>進行1對1以及1對2的個別指導老師，協助學生解決學業上的疑惑</li>
+                  <li>針對不同學生的個性進行個別化教學，找到學生最適合的學習方式</li>
                 </ul>
               </v-timeline-item>
 
@@ -65,8 +65,8 @@
                 <div class="font-weight-medium mt-5">UI 設計師及視覺設計 · 輔具傢 ATHome（合作型）</div>
                 <div class="text-medium-emphasis text-body-2">2023 — 現今</div>
                 <ul class="mt-2 text-body-2">
-                  <li>建立設計系統（色彩/元件/動態），縮短 30% 開發溝通</li>
-                  <li>負責品牌形象網站與行銷素材，維持跨平台一致性</li>
+                  <li>進行網頁以及系統 UI 的規劃和設計更新</li>
+                  <li>針對活動設計一系列的視覺設計，如活動海報、背板、活動手牌</li>
                 </ul>
               </v-timeline-item>
 
@@ -74,8 +74,8 @@
                 <div class="font-weight-medium mt-5">圖編 · 點點塑（合作型）</div>
                 <div class="text-medium-emphasis text-body-2">2023 — 現今</div>
                 <ul class="mt-2 text-body-2">
-                  <li>建立設計系統（色彩/元件/動態），縮短 30% 開發溝通</li>
-                  <li>負責品牌形象網站與行銷素材，維持跨平台一致性</li>
+                  <li>進行社群貼文圖的製作</li>
+                  <li>針對活動設計一系列的視覺設計，例如活動背板、看板、手拿牌</li>
                 </ul>
               </v-timeline-item>
 
@@ -83,8 +83,8 @@
                 <div class="font-weight-medium mt-5">圖編 · 晴光皮膚科（合作型）</div>
                 <div class="text-medium-emphasis text-body-2">2023 — 現今</div>
                 <ul class="mt-2 text-body-2">
-                  <li>建立設計系統（色彩/元件/動態），縮短 30% 開發溝通</li>
-                  <li>負責品牌形象網站與行銷素材，維持跨平台一致性</li>
+                  <li>進行社群貼文圖的製作</li>
+                  <li>針對活動設計行銷海報</li>
                 </ul>
               </v-timeline-item>
 
@@ -92,8 +92,14 @@
                 <div class="font-weight-medium mt-5">UI 設計師 · 技嘉科技</div>
                 <div class="text-medium-emphasis text-body-2">2021 — 2023 · 新北</div>
                 <ul class="mt-2 text-body-2">
-                  <li>建立設計系統（色彩/元件/動態），縮短 30% 開發溝通</li>
+                  <li>系統規劃及 UI 設計</li>
+                  <li>建立設計系統（色彩/元件/動態）</li>
+                  <li>跨部門溝通</li>
                   <li>負責品牌形象網站與行銷素材，維持跨平台一致性</li>
+                  <li>與前端合作將稿件落地到網頁</li>
+                  <li>主視覺、海報與社群素材設計</li>
+                  <li>影片規劃剪輯</li>
+                  <li>系統使用手冊撰寫</li>
                 </ul>
               </v-timeline-item>
 
@@ -101,8 +107,9 @@
                 <div class="font-weight-medium mt-5">UI 設計實習 · 技嘉科技</div>
                 <div class="text-medium-emphasis text-body-2">2019 — 2021 · 新北</div>
                 <ul class="mt-2 text-body-2">
+                  <li>系統 UI 設計</li>
                   <li>主視覺、海報與社群素材設計</li>
-                  <li>與前端合作將稿件落地到網頁</li>
+                  <li>影片規劃剪輯</li>
                 </ul>
               </v-timeline-item>
             </v-timeline>
@@ -165,7 +172,7 @@
 <script setup>
 const resumeHref = '/Shuting-Chen-Resume.pdf' // 放在 public/
 const mailto = 'mailto:chenshuting990420@gmail.com'
-const behance = 'https://www.behance.net/your-id'
+const behance = 'https://www.behance.net/shutingchen'
 
 // 依需求調整
 const skills = [
@@ -179,18 +186,18 @@ const skills = [
 const toolGroups = [
   {
     title: '設計 / 視覺',
-    color: 'primary', // 可改
+    color: 'primary', 
     list: ['Figma', 'Illustrator', 'Photoshop']
   },
   {
     title: '程式 / 開發',
-    color: 'teal', // 可改或拿掉 color
-    list: ['HTML/CSS', 'Python', 'C++', 'C#', 'Unity']
+    color: 'teal', 
+    list: ['HTML/CSS', 'Python/Open3D', 'C++', 'C#', 'Unity']
   },
   {
-    title: '3D / MR / BIM',
-    color: 'purple', // 可改
-    list: ['點雲', 'HoloLens', 'Revit']
+    title: '3D / MR / BIM ',
+    color: 'purple', 
+    list: ['點雲/PCL', 'HoloLens', 'Revit', 'MRTK']
   }
 ]
 

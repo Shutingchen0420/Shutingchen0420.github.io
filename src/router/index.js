@@ -6,6 +6,7 @@ const routes = [
   { path: '/projects/:id',    name: 'project-detail', component: () => import('../pages/ProjectDetail.vue') },
   { path: '/about',           name: 'about',          component: () => import('../pages/About.vue') },
   { path: '/contact',         name: 'contact',        component: () => import('../pages/Contact.vue') },
+  { path: '/projects/:slug', name: 'project-detail', component: () => import('../pages/ProjectDetail.vue') },
 ]
 
 export default createRouter({
