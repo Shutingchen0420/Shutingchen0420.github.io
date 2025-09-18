@@ -11,7 +11,34 @@ export const projects = [
       alt: 'HoloLens 研究封面',
       tags: ['MR', 'HoloLens', 'Point Cloud'],
       description: `簡述研究目標、技術棧與成果指標。`,
-      galleryBases: ['/img/research-1', '/img/research-2'],
+      content: [
+        { type: 'h3', text: '研究目標' },
+        { type: 'p',  text: '以 HoloLens 於工地現場量測與點雲疊合，驗證 MR 導引在施工檢核的可行性。' },
+  
+        { type: 'h3', text: '方法與流程' },
+        { type: 'list', items: [
+          '使用 Revit 產出 BIM 模型，匯出為點雲/網格',
+          '以 Azure Spatial Anchors 進行現地定位與座標對準',
+          'HoloLens 內部建立檢核步驟與互動 UI',
+        ]},
+  
+        // 單張圖片（JPG only，會自動組 srcset：-400/-800/-1200）
+        { type: 'img', base: '/img/research-1', ratio: '16/9', alt: '現場點雲疊合示意', caption: '現場點雲與 BIM 疊合狀態' },
+  
+        { type: 'p',  text: '實驗在新北建案進行，針對樑柱與管線位置偏差做量測與記錄。' },
+  
+        // 雙圖並排
+        { type: 'imageGrid', ratio: '4/3', images: [
+          { base: '/img/research-2', alt: 'HoloLens 介面' },
+          { base: '/img/research-3', alt: '量測結果標註' },
+        ], caption: '左：介面；右：量測標註' },
+  
+        { type: 'h3', text: '結果' },
+        { type: 'p',  text: '以 12 次檢核流程，錯位平均縮短 28%，現場人員平均熟悉時間 10 分鐘以內。' },
+  
+        { type: 'hr' },
+        { type: 'p',  text: '更多技術細節或原始量測資料可於需求時提供。' },
+      ],
     },
   
     // UI
