@@ -5,39 +5,60 @@ export const projects = [
     {
       slug: 'research-hololens',
       category: 'research', // ← 分類鍵
-      title: '研究｜HoloLens',
-      subtitle: 'MR / HoloLens / 點雲',
+      title: '整合頭戴式混合實境裝置與點雲場景分割技術之既有建物 BIM 自動建模',
+      subtitle: 'MR / HoloLens / 點雲 / BIM',
       base: '/img/research', // research-400/800/1200.jpg
       alt: 'HoloLens 研究封面',
       tags: ['MR', 'HoloLens', 'Point Cloud'],
-      description: `簡述研究目標、技術棧與成果指標。`,
+      description: `以 HoloLens 點雲＋場景分割技術結合 Revit API 進行自動建模，
+      並在 HoloLens 上進行虛實套合比對，降低既有建物建模的人力與時間成本。`,
       content: [
         { type: 'h3', text: '研究目標' },
-        { type: 'p',  text: '以 HoloLens 於工地現場量測與點雲疊合，驗證 MR 導引在施工檢核的可行性。' },
+        { type: 'p',  text: '以 HoloLens 點雲＋場景分割技術結合 Revit API 進行自動建模，並在 HoloLens 上進行虛實套合比對，降低既有建物建模的人力與時間成本。' },
   
-        { type: 'h3', text: '方法與流程' },
-        { type: 'list', items: [
-          '使用 Revit 產出 BIM 模型，匯出為點雲/網格',
-          '以 Azure Spatial Anchors 進行現地定位與座標對準',
-          'HoloLens 內部建立檢核步驟與互動 UI',
-        ]},
-  
-        // 單張圖片（JPG only，會自動組 srcset：-400/-800/-1200）
-        { type: 'img', base: '/img/research-1', ratio: '16/9', alt: '現場點雲疊合示意', caption: '現場點雲與 BIM 疊合狀態' },
-  
-        { type: 'p',  text: '實驗在新北建案進行，針對樑柱與管線位置偏差做量測與記錄。' },
+        { type: 'h3', text: '系統需求與開發工具' },
+        { type: 'p',  text: `系統需求分析根據既有建築自動建模的目的分為六大需求 -
+          HoloLens 點雲數據合併、物件切割模型、產生幾何元件資訊、生成組合模型、現場虛實貼合機制以及最終的 Revit 自動建模` },
+        { type: 'p',  text: `本研究系統的開發工具，整體可以分成三大類來進行
+          首先為點雲處理的部分，從 HoloLens 進行點雲掃描後，會先進入使用 Python 撰寫的物件切割演算法進行切割，而後切割結果將會再透過 PCL 點雲庫完成點雲演算法的計算
+          接著為現場套合的部分，會透過 Unity 與 C# 撰寫邏輯建立組合模型，再結合 MRTK 混合實境開發工具以及 HoloLens 來實現現場套合的部分
+          最後為自動建模的部分，依據組合模型的輸出資訊，透過 Revit API 將其送入 Revit 中完成自動建立建築資訊模型的目的`},
   
         // 雙圖並排
         { type: 'imageGrid', ratio: '4/3', images: [
-          { base: '/img/research-2', alt: 'HoloLens 介面' },
-          { base: '/img/research-3', alt: '量測結果標註' },
-        ], caption: '左：介面；右：量測標註' },
+          { base: '/img/research-2', alt: '系統需求分析' },
+          { base: '/img/research-3', alt: '系統開發工具' },
+        ], caption: '左：系統需求分析；右：系統開發工具' },
+
+        { type: 'h3', text: '方法與流程' },
+        { type: 'list', items: [
+          '使用 HoloLens 進行點雲掃描',
+          '使用 PointNet++ 進行點雲場景切割',
+          '透過點雲演算法定向包圍盒(OBB)產生模型元件',
+          '於 Unity 中加上材質載入 HoloLens 進行現場虛實套合',
+          '使用基於點雲演算法所產生的模型元件 Json 檔，結合 Revit API 自動建立建築資訊模型',
+        ]},
   
-        { type: 'h3', text: '結果' },
-        { type: 'p',  text: '以 12 次檢核流程，錯位平均縮短 28%，現場人員平均熟悉時間 10 分鐘以內。' },
+        // 單張圖片（JPG only，會自動組 srcset：-400/-800/-1200）
+        { type: 'img', base: '/img/research-1', ratio: '16/9', alt: '系統流程', caption: '系統流程' },
+  
+        
+  
+        { type: 'h3', text: '結論' },
+        { type: 'p',  text: `本研究提出了一套整合點雲掃描、語意分割與 BIM 建模的自動化系統流程，其核心技術為：結合深度學習的場景分割演算法，並搭配 Revit API 以及 HoloLens 混合實境裝置進行整體流程整合與虛實呈現。
+          實驗結果顯示，系統能夠自動辨識室內的柱子、樑、樓板、牆面等主要構件，並進一步透過定向包圍盒計算空間範圍，做為後續自動建模的依據。
+          在物件切割模型的訓練上，本研究採用 PointNet++ 作為主要架構，並結合公開資料集 S3DIS 以及台科大掃描的實景資料，進行混合訓練與參數優化。
+          最終模型成果達成：
+          平均 IoU 為 51.13%，表示模型對多類別的區分能力具一定準確性
+          整體準確率達 82.53%，展現本系統於實際場景辨識中的穩定效能。` },
   
         { type: 'hr' },
-        { type: 'p',  text: '更多技術細節或原始量測資料可於需求時提供。' },
+        { type: 'cta',
+          text: '想看完整的內容請點擊',
+          label: '看完整內容',
+          href: 'https://etheses.lib.ntust.edu.tw/detail/46fe47b9165f68df4b6adfd694e3356e/',
+          icon: 'mdi-open-in-new'
+        },
       ],
     },
   

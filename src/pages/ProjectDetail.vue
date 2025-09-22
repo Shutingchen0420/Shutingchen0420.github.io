@@ -9,9 +9,11 @@
         @error="e => (e.target.src = `${project.base}-800.jpg`)" />
     </v-responsive>
 
-    <div class="d-flex align-center ga-3 mb-2">
-      <h1 class="text-h4 font-weight-bold m-0">{{ project.title }}</h1>
-      <v-chip v-for="tag in project.tags" :key="tag" variant="tonal" size="small">{{ tag }}</v-chip>
+    <div class="d-flex align-center flex-wrap ga-3 mb-2">
+      <h1 class="project-title m-0">{{ project.title }}</h1>
+      <div class="d-flex flex-wrap ga-2">
+        <v-chip v-for="tag in project.tags" :key="tag" variant="tonal" size="small">{{ tag }}</v-chip>
+      </div>
     </div>
     <p class="text-h6 text-medium-emphasis mb-6">
       {{ project.subtitle }}
@@ -66,8 +68,28 @@
           </v-row>
           <figcaption v-if="b.caption" class="text-caption text-medium-emphasis mt-2">{{ b.caption }}</figcaption>
         </figure>
+        <!-- 單顆按鈕 -->
+        <div v-else-if="b.type === 'btn'" class="my-3">
+          <v-btn :color="b.color || 'primary'" :variant="b.variant || 'flat'" :href="b.href" :to="b.to"
+            :target="b.target || (b.href ? '_blank' : undefined)" :rel="b.href ? 'noopener' : undefined"
+            :prepend-icon="b.icon" :append-icon="b.appendIcon">
+            {{ b.label }}
+          </v-btn>
+        </div>
+
+        <!-- 段落 + 按鈕同一行（手機會自動換行） -->
+        <div v-else-if="b.type === 'cta'" class="d-flex flex-wrap align-center ga-3 my-3">
+          <p class="text-body-1 text-medium-emphasis m-0">{{ b.text }}</p>
+          <v-btn :color="b.color || 'primary'" :variant="b.variant || 'flat'" :href="b.href" :to="b.to"
+            :target="b.target || (b.href ? '_blank' : undefined)" :rel="b.href ? 'noopener' : undefined"
+            :prepend-icon="b.icon" :append-icon="b.appendIcon">
+            {{ b.label }}
+          </v-btn>
+        </div>
       </template>
     </div>
+
+
 
     <!-- ⬇️ 舊版 fallback：沒有 content 就用描述 + 圖庫 -->
     <template v-else>
@@ -114,5 +136,17 @@ const project = computed(() => getProjectBySlug(slug.value))
 
 .rich ul {
   padding-left: 20px;
+}
+
+.project-title {
+  font-weight: 700;
+  line-height: 1.25;
+  font-size: 1.375rem;
+}
+
+@media (min-width: 600px) {
+  .project-title {
+    font-size: 1.75rem;
+  }
 }
 </style>
