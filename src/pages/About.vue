@@ -11,8 +11,8 @@
       <v-col cols="12" md="8">
         <div class="text-h4 font-weight-bold mb-2">嗨，我是 Shuting</div>
         <div class="text-subtitle-1 text-medium-emphasis mb-4">
-          視覺／UI 設計師，關注品牌一致性與介面可用性。喜歡把抽象需求轉成清楚的版型與設計系統，
-          熟悉 Figma、Illustrator 與前端整合（Vue + Vuetify）。
+          視覺／UI 設計師，重視品牌一致性與介面可用性，擅長將抽象需求落實為清楚可維護的版型與設計系統。
+          研究所聚焦 MR 與點雲應用：以 HoloLens 掃描，結合 PointNet++ 分割與 OBB 演算法，串接 Revit API 進行自動化 BIM 建模；同時能以 Vue（Vuetify）建置前端，熟悉 Unity、Figma、Illustrator。
         </div>
         <div class="d-flex flex-wrap ga-3">
           <v-btn color="primary" :href="resumeHref" target="_blank" rel="noopener"
