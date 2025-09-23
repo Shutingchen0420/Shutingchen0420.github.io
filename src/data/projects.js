@@ -67,12 +67,14 @@ export const projects = [
       slug: 'ui-mytree',
       category: 'ui',
       title: 'My Tree',
-      subtitle: '樹狀筆記 / 任務互動',
+      subtitle: '樹木調查 / 公民科學',
       base: '/img/ui-mytree',
       alt: 'My Tree App',
       tags: ['UI', 'App', 'Design System'],
       description: `資訊架構與關鍵流程…`,
-      galleryBases: ['/img/ui-mytree-1', '/img/ui-mytree-2'],
+      content: [
+        { type: 'h3', text: '研究目標' },
+      ]
     },
     {
       slug: 'ui-checkin',
@@ -88,10 +90,10 @@ export const projects = [
       slug: 'ui-hopeart',
       category: 'ui',
       title: 'HopeArt 形象官網',
-      subtitle: '品牌形象 / RWD',
+      subtitle: '品牌形象 / 網站',
       base: '/img/ui-hopeart',
       alt: 'HopeArt 官網',
-      tags: ['UI', 'Web', 'RWD'],
+      tags: ['UI', 'Website'],
       description: `首頁英雄區、作品牆與導流…`,
     },
   
@@ -124,6 +126,16 @@ export const projects = [
       base: '/img/graphic-derma',
       alt: '醫美海報',
       tags: ['Graphic', 'Poster'],
+      description: `醫療情境的視覺與版式…`,
+    },
+    {
+      slug: 'graphic-hopeart',
+      category: 'graphic',
+      title: 'Hope Art Studio',
+      subtitle: '品牌',
+      base: '/img/graphic-derma',
+      alt: '醫美海報',
+      tags: ['明信片', 'Poster'],
       description: `醫療情境的視覺與版式…`,
     },
   ]

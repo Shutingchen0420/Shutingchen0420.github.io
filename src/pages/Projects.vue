@@ -3,9 +3,16 @@
     <!-- Sticky 工具列：搜尋 + 類別快速跳 -->
     <v-sheet class="sticky-nav" elevation="1" rounded="xl">
       <div class="d-flex align-center flex-wrap ga-3">
-        <v-text-field v-model="q" density="comfortable" clearable
-          prepend-inner-icon="mdi-magnify" variant="outlined" hide-details
-          placeholder="搜尋作品（標題 / 標籤）" class="flex-grow-1" />
+        <v-text-field
+          v-model="q"
+          density="comfortable"
+          clearable
+          prepend-inner-icon="mdi-magnify"
+          variant="outlined"
+          hide-details
+          placeholder="搜尋作品（標題 / 標籤）"
+          class="flex-grow-1"
+        />
         <div class="d-flex ga-2">
           <v-chip
             v-for="c in categories" :key="c.key"
@@ -25,7 +32,8 @@
 
       <v-row v-if="grouped[c.key]?.length" dense>
         <v-col cols="12" sm="6" md="4" v-for="p in grouped[c.key]" :key="p.slug">
-          <v-card :to="{ name: 'project-detail', params: { slug: p.slug } }" rounded="xl" hover>
+          <!-- 這裡改成 routeFor(p) -->
+          <v-card :to="routeFor(p)" rounded="xl" hover>
             <v-responsive aspect-ratio="16/9" class="rounded-t-xl overflow-hidden">
               <img
                 :src="`${p.base}-800.jpg`"
@@ -91,12 +99,19 @@ onMounted(() => { onHashChange(); window.addEventListener('hashchange', onHashCh
 onBeforeUnmount(() => window.removeEventListener('hashchange', onHashChange))
 
 const scrollTop = () => window.scrollTo({ top: 0, behavior: 'smooth' })
+
+// ✅ 依 slug 決定導向：只有 ui-hopeart 走專屬頁，其他走共用詳細頁
+const routeFor = (p) => (
+  p.slug === 'ui-hopeart'
+    ? { name: 'project-hopeart' }
+    : { name: 'project-detail', params: { slug: p.slug } }
+)
 </script>
 
 <style scoped>
 .sticky-nav {
   position: sticky;
-  top: 64px;                 /* 視你的 App Bar 高度微調 */
+  top: 64px; /* 視你的 App Bar 高度微調 */
   z-index: 10;
   background: rgba(255,255,255,.85);
   backdrop-filter: blur(8px);
