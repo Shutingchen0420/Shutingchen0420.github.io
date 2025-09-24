@@ -23,7 +23,7 @@
       <section id="intro" class="mb-8">
         <v-responsive aspect-ratio="16/9" class="rounded-xl overflow-hidden mb-4">
           <img
-            src="/hopeart/hope.jpg"
+            src="/img/ui-hopeart-1200.jpg"
             alt="HOPE Art Studio hero"
             style="width:100%;height:100%;object-fit:cover"
           />
