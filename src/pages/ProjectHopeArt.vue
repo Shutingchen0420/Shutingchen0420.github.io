@@ -69,17 +69,17 @@
             <div class="ml-6">
                 <div class="pb-3 text-h6">頁面優化</div>
                 <figure class="my-5">
-                <v-responsive aspect-ratio="4/3" class="rounded-xl overflow-hidden">
-                    <img src="/hopeart/page.jpg" alt="頁面優化" style="width:100%;height:100%;object-fit:cover" />
-                    <div class="hotspot-layer">
-                        <button v-for="(s, i) in pageSpots" :key="i" class="hotspot"
-                            :style="{ left: s.x + '%', top: s.y + '%' }" type="button" @click="openSpot(s)"
-                            :aria-label="s.title">
-                            <v-icon size="18">mdi-information</v-icon>
-                        </button>
-                    </div>
-                </v-responsive>
-            </figure>
+                    <v-responsive aspect-ratio="4/3" class="rounded-xl overflow-hidden">
+                        <img src="/hopeart/page.jpg" alt="頁面優化" style="width:100%;height:100%;object-fit:cover" />
+                        <div class="hotspot-layer">
+                            <button v-for="(s, i) in pageSpots" :key="i" class="hotspot"
+                                :style="{ left: s.x + '%', top: s.y + '%' }" type="button" @click="openSpot(s)"
+                                :aria-label="s.title">
+                                <v-icon size="18">mdi-information</v-icon>
+                            </button>
+                        </div>
+                    </v-responsive>
+                </figure>
             </div>
         </section>
 
@@ -138,31 +138,55 @@
         </section>
 
         <section id="ia" class="mb-10">
-            <div class="text-h6 font-weight-bold mb-3">官網整體架構</div>
+            <div class="text-h5 font-weight-bold mb-3">官網整體架構</div>
             <SiteIaDiagram :items="iaItems" spine-text="HOPE Art Studio" />
         </section>
 
 
         <!-- 頁面範例（可點放大） -->
         <section id="examples" class="mb-10 pt-10">
-            <div class="text-h6 font-weight-bold mb-3">頁面範例</div>
-            <v-row dense>
-                <v-col cols="12" md="6">
-                    <v-img src="/hopeart/hope.jpg" height="300" cover class="rounded-lg"
-                        @click="openLightbox(['/hopeart/monthly.jpg'])" />
-                    <div class="text-caption text-medium-emphasis mt-1">月刊頁：以主題卡與大小版型引導點擊</div>
-                </v-col>
-                <v-col cols="12" md="6">
-                    <v-img src="/hopeart/hope.jpg" height="300" cover class="rounded-lg"
-                        @click="openLightbox(['/hopeart/artworks.jpg'])" />
-                    <div class="text-caption text-medium-emphasis mt-1">作品頁：輪播、作品細節、相關作品導流</div>
-                </v-col>
-            </v-row>
+            <div class="text-h5 font-weight-bold mb-3">頁面介紹</div>
+            <div class="pb-3 text-h6">首頁</div>
+            <section v-for="(s, i) in homeSections" :key="i" class="mb-12">
+      <!-- 需要調整左右比例，可在這裡覆寫 CSS 變數（每段可不同） -->
+      <SideNotesRightImage
+        :src="s.src"
+        :ratio="s.ratio"
+        :notes="s.notes"
+        :imageSide="s.imageSide"
+        :class="s.class"
+        :style="s.style" 
+      />
+    </section>
+    <div class="pb-3 text-h6">主題月刊</div>
+            <section v-for="(s, i) in themeSections" :key="i" class="mb-12">
+      <!-- 需要調整左右比例，可在這裡覆寫 CSS 變數（每段可不同） -->
+      <SideNotesRightImage
+        :src="s.src"
+        :ratio="s.ratio"
+        :notes="s.notes"
+        :imageSide="s.imageSide"
+        :class="s.class"
+        :style="s.style" 
+      />
+    </section>
+    <div class="pb-3 text-h6">作品</div>
+            <section v-for="(s, i) in artSections" :key="i" class="mb-12">
+      <!-- 需要調整左右比例，可在這裡覆寫 CSS 變數（每段可不同） -->
+      <SideNotesRightImage
+        :src="s.src"
+        :ratio="s.ratio"
+        :notes="s.notes"
+        :imageSide="s.imageSide"
+        :class="s.class"
+        :style="s.style" 
+      />
+    </section>
         </section>
 
         <!-- Mockups（可放大輪播） -->
         <section id="mockups" class="mb-10">
-            <div class="text-h6 font-weight-bold mb-3">Mockups</div>
+            <div class="text-h5 font-weight-bold mb-3">Mockups</div>
             <v-row dense>
                 <v-col v-for="(m, i) in mockups" :key="i" cols="12" sm="6" md="4">
                     <v-img :src="m" height="220" cover class="rounded-lg" @click="openLightbox(mockups, i)" />
@@ -216,7 +240,7 @@ const sections = [
     { id: 'strategy', label: '策略' },
     { id: 'brand', label: '色彩/字體' },
     { id: 'ia', label: '資訊架構' },
-    { id: 'examples', label: '頁面範例' },
+    { id: 'examples', label: '頁面介紹' },
     { id: 'mockups', label: 'Mockups' },
 ]
 
@@ -227,10 +251,10 @@ const strategySpots = [
     { x: 30, y: 63, title: '資訊層級清楚', text: '模組化資訊架構，減少使用者迷失。' }
 ]
 const pageSpots = [
-    { x: 25, y: 30, title: '首頁', text: '以大視覺與分割模組呈現最新主題。' },
-    { x: 28, y: 60, title: '藝術家專區', text: '提供作品瀏覽、作者資訊、追蹤動態。' },
-    { x: 30, y: 82, title: 'FAQ', text: '快速找到問題解答。' },
-    { x: 30, y: 82, title: 'FAQ', text: '快速找到問題解答。' }
+    { x: 8, y: 25, title: '資訊架構', text: '頁面內容明確分類，整理官網整體架構。' },
+    { x: 29.5, y: 30, title: '主題專區', text: '創造獨一無二的月刊主題，增加官網整體的多樣性。' },
+    { x: 60, y: 15, title: '風格', text: '以白底黑字為主視覺，呈現簡單、乾淨的畫面來襯托藝術作品。' },
+    { x: 74.5, y: 20, title: '內容', text: '增加作品的文字描述，讓藝術作品不再只有單單圖片展示。' }
 ]
 
 /* 色票 */
@@ -241,7 +265,7 @@ const copy = async (txt) => {
 }
 
 /* Lightbox */
-const mockups = ['/hopeart/mockups-1.jpg', '/hopeart/mockups-2.jpg', '/hopeart/mockups-3.jpg']
+const mockups = ['/hopeart/mockup-1.jpg', '/hopeart/mockup-2.jpg']
 const lightbox = ref({ open: false, list: [], index: 0 })
 const openLightbox = (list, start = 0) => { lightbox.value = { open: true, list, index: start } }
 
@@ -260,6 +284,71 @@ const scrollTo = (id) => {
     const el = document.getElementById(id)
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
 }
+
+import SideNotesRightImage from '../components/SideNotesRightImage.vue'
+
+/**
+ * 這裡集中維護所有文案與座標（y：對應圖片垂直百分比）
+ * 想新增段落就再 push 一個物件；想改文案就在這裡改。
+ */
+const homeSections = [
+  {
+    // 段落 1：圖在右、兩段註解
+    src: '/hopeart/homepage-01.jpg',
+    ratio: '16/9',
+    imageSide: 'right',
+    notes: [
+      { y: 22, x: -130, text: '使用動態圖片增加網頁多樣性' }, // 這條線往右推 16px
+      { y: 65, x:  -30, text: '主題月刊使用黑底以凸顯作品及營造寧靜神祕感' },
+    ],
+    style: { '--left-w': '46%', '--img-w': '48%' } // 可選：段落級調整
+  },
+  {
+    // 段落 2：反過來，圖在左、單段註解
+    src: '/hopeart/homepage-02.jpg',
+    ratio: '16/9',
+    imageSide: 'left',
+    notes: [
+      { y: 40, x: 20, text: '關於 HOPE Art 主要以畫面分割的方式來展現特例性' }, // 這條線往右推 16px
+    ],
+    style: { '--left-w': '40%', '--img-w': '50%' } // 可選：段落級調整
+  }
+]
+const themeSections = [
+  {
+    src: '/hopeart/theme01.jpg',
+    ratio: '3/4',
+    imageSide: 'left',
+    notes: [
+      { y: 26, text: '依據主題的不同設計對應的版型，以展現藝術家最核心的創作理念' },
+    ],
+    style: { '--left-w': '44%', '--img-w': '48%' },
+  },
+]
+const artSections = [
+{
+    // 段落 2：反過來，圖在左、單段註解
+    src: '/hopeart/artwork.jpg',
+    ratio: '16/9',
+    imageSide: 'left',
+    notes: [
+      { y: 38, x: 20, text: '根據英文字母的開頭跳到對應的藝術作品位置' }, // 這條線往右推 16px
+    ],
+    style: { '--left-w': '40%', '--img-w': '50%' } // 可選：段落級調整
+  },
+  {
+    // 段落 2：反過來，圖在左、單段註解
+    src: '/hopeart/work.jpg',
+    ratio: '16/9',
+    imageSide: 'right',
+    notes: [
+      { y: 20, x: 20, text: '藝術作品的輪播圖，點即可全螢幕觀看細節' },
+      { y: 60, x: -30, text: '情境圖，作品在真實情境下的模樣' }, 
+      { y: 80, x: 20, text: '藝術家更多相關的畫作，讓使用者可以更加了解此為藝術家' },  // 這條線往右推 16px
+    ],
+    style: { '--left-w': '38%', '--img-w': '55%' } // 可選：段落級調整
+  }
+]
 </script>
 
 <style scoped>

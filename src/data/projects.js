@@ -76,7 +76,7 @@ export const projects = [
         { type: 'h3', text: '研究目標' },
       ]
     },
-    {
+    /*{
       slug: 'ui-checkin',
       category: 'ui',
       title: '打卡 APP',
@@ -85,7 +85,7 @@ export const projects = [
       alt: '打卡 App',
       tags: ['UI', 'App'],
       description: `地圖與打卡體驗…`,
-    },
+    },*/
     {
       slug: 'ui-hopeart',
       category: 'ui',
