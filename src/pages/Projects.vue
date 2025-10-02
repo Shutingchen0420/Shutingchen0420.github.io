@@ -33,7 +33,7 @@
       <v-row v-if="grouped[c.key]?.length" dense>
         <v-col cols="12" sm="6" md="4" v-for="p in grouped[c.key]" :key="p.slug">
           <!-- 這裡改成 routeFor(p) -->
-          <v-card :to="routeFor(p)" rounded="xl" hover>
+          <v-card :to="linkTo(p)" rounded="xl" hover>
             <v-responsive aspect-ratio="16/9" class="rounded-t-xl overflow-hidden">
               <img
                 :src="`${p.base}-800.jpg`"
@@ -106,6 +106,11 @@ const routeFor = (p) => (
     ? { name: 'project-hopeart' }
     : { name: 'project-detail', params: { slug: p.slug } }
 )
+
+const linkTo = (item) =>
+  item.routeName
+    ? { name: item.routeName }
+    : { name: 'project-detail', params: { slug: item.slug } }
 </script>
 
 <style scoped>

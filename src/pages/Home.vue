@@ -15,7 +15,7 @@
   <div class="text-h5 font-weight-bold mt-10 mb-4">最新作品</div>
   <v-row>
   <v-col cols="12" sm="6" md="4" v-for="card in cards" :key="card.slug">
-    <v-card :to="{ name: 'project-detail', params: { slug: card.slug } }" rounded="xl" hover>
+    <v-card :to="linkTo(card)" rounded="xl" hover>
       <!-- 固定 16:9 比例，裡面放原生 <img>（只有 JPG）-->
       <v-responsive aspect-ratio="16/9" class="rounded-t-xl overflow-hidden">
         <img
@@ -32,7 +32,7 @@
       <v-card-title class="mt-2">{{ card.title }}</v-card-title>
       <v-card-subtitle>{{ card.subtitle }}</v-card-subtitle>
       <v-card-actions>
-        <v-btn variant="text" :to="{ name:'project-detail', params:{ slug: card.slug } }">詳細</v-btn>
+        <v-btn variant="text" :to="linkTo(card)">詳細</v-btn>
       </v-card-actions>
     </v-card>
   </v-col>
@@ -42,6 +42,12 @@
 <script setup>
 import { projects } from '../data/projects'
 
-// 想只顯示前三個：const cards = projects.slice(0, 3)
 const cards = projects.slice(0, 3)
+
+const linkTo = (item) =>
+  item.routeName
+    ? { name: item.routeName }                                  // 走自訂頁
+    : { name: 'project-detail', params: { slug: item.slug } }   // 走共用頁
+
 </script>
+

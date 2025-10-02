@@ -1,0 +1,484 @@
+<template>
+    <v-container>
+        <!-- 章節導覽（吸頂） -->
+        <v-sheet class="sticky-nav" elevation="1" rounded="xl">
+            <div class="d-flex align-center flex-wrap ga-2">
+                <v-chip v-for="s in sections" :key="s.id" :color="hash === '#' + s.id ? 'primary' : undefined"
+                    variant="tonal" :ripple="false" @click="scrollTo(s.id)">
+                    {{ s.label }}
+                </v-chip>
+
+                <v-spacer />
+                <v-btn size="small" variant="text" :to="{ name: 'projects' }">← 返回作品</v-btn>
+            </div>
+        </v-sheet>
+
+        <!-- Hero / 基本資訊 -->
+        <section id="intro" class="mb-8">
+            <v-responsive aspect-ratio="16/9" class="rounded-xl overflow-hidden mb-4">
+                <img src="/img/myTreeApp-1200.jpg" alt="My Tree App hero"
+                    style="width:100%;height:100%;object-fit:cover" />
+            </v-responsive>
+
+            <v-row dense>
+                <v-col cols="12" md="7">
+                    <h1 class="text-h4 font-weight-bold mb-2">My Tree App</h1>
+                    <p class="text-subtitle-1 text-medium-emphasis">
+                        My Tree Your Tree​ 樹木的好朋友​
+                    </p>
+                    <div class="d-flex ga-2 mt-2 mb-10">
+                        <v-chip size="small" variant="outlined">UI</v-chip>
+                        <v-chip size="small" variant="outlined">Web</v-chip>
+                        <v-chip size="small" variant="outlined">RWD</v-chip>
+                    </div>
+                </v-col>
+
+                <v-col cols="12" md="5">
+                    <v-card rounded="xl" elevation="1">
+                        <v-card-text class="text-body-2">
+                            <div class="d-flex justify-space-between"><span>設計時間</span><span>2024</span></div>
+                            <div class="d-flex justify-space-between"><span>參與</span><span>陳姝廷</span></div>
+                            <div class="d-flex justify-space-between"><span></span><span>李丞祐</span></div>
+                            <div class="d-flex justify-space-between"><span></span><span>程鈺鈞</span></div>
+                            <div class="d-flex justify-space-between"><span></span><span>吳承恩​</span></div>
+                        </v-card-text>
+                    </v-card>
+                </v-col>
+            </v-row>
+        </section>
+
+        <!-- 定義問題與策略（熱點圖） -->
+        <section id="strategy" class="mb-10">
+            <div class="text-h5 font-weight-bold mb-3 mt-5">現況分析/確定目標</div>
+            <div class="pb-3 text-h6">面臨的問題</div>
+            <p class="text-subtitle-1 text-medium-emphasis mb-3">
+                請專家目視檢查一棵需約200元，而以科學方式檢驗一棵則需約2000元，成本高昂；過程耗時又費力；可動用的人力資源不足；且檢查範圍過於廣闊，難以全面照顧到所有目標。</p>
+            <div class="pb-3 text-h6">目的</div>
+            <p class="text-subtitle-1 text-medium-emphasis mb-3">
+                及早找出樹木潛在的安全隱患，降低倒塌與斷裂等意外風險以確保民眾安全；透過健檢迅速發現並處置可能的病蟲害，協助保護城市綠化、維護生態平衡，同時推廣公民科學；並評估樹木的健康狀況與價值，作為合理配置維護資源的依據。
+            </p>
+            <div class="pb-3 text-h6">競品分析</div>
+            <ComparisonTable :columns="columns" :rows="rows" :data="data">
+                <template #col-seek>
+                    Seek by <span class="font-weight-bold">iNaturalist</span>
+                </template>
+            </ComparisonTable>
+            <v-container>
+                <div class="text-h6 font-weight-bold mb-3">產品定位圖</div>
+                <PositioningMap :items="items" x-left="一般" x-right="專業" y-top="範圍大" y-bottom="範圍小" />
+            </v-container>
+            <div class="text-h6 font-weight-bold mb-3">人物誌</div>
+            <v-card rounded="xl" elevation="1">
+                <v-card-title class="pb-0">林粼粼</v-card-title>
+                <v-card-text class="two-col">
+                    <div>
+                        <img src="/mytree/nature-girl.jpg" alt="nature-girl"
+                            style="width:100%;height:100%;object-fit:cover" class="mt-5" />
+                    </div>
+                    <div>
+                        <div class="font-weight-medium mt-5">年齡 22 歲</div>
+                        <div class="font-weight-medium mt-2">性別 女</div>
+                        <div class="font-weight-medium mt-2">工作 大學生</div>
+                    </div>
+                </v-card-text>
+                <v-card-text>
+                    <div class="mb-4">
+                        <div class="font-weight-medium">
+                            粼粼是個熱愛自然的青年，平時喜歡和朋友或家人到戶外踏青，享受大自然的美景。對環境保護有一定的意識，同時也是台灣護樹協會的一員，但對於樹木健康和種類了解有限，希望能夠透過樹木健檢app來學習更多樹木的知識、了解更多關於樹木健康的觀念。同時，他也是社區裡的環保志願者，積極參與樹木保護和環境改善的活動。​
+                        </div>
+                    </div>
+                </v-card-text>
+            </v-card>
+            <div class="two-col11">
+                <div>
+                    <div class="text-h6 font-weight-bold mb-3 mt-5">設計方案​</div>
+                    <v-card rounded="xl" elevation="1">
+                        <v-card-text>
+                            <div class="mb-4 mt-1">
+                                <div class="font-weight-medium">
+                                    結合遊戲化體驗​
+                                </div>
+                                <div class="text-medium-emphasis text-body-2 mt-1">
+                                    設計養成樹木和使用者產生連結，以及獎牌收集或是積分排行榜，產生正回饋，讓使用者對產品的黏著度提高，進行公民科學時可以覺得開心​
+                                </div>
+                                <div class="font-weight-medium mt-3">
+                                    提供專業知識​
+                                </div>
+                                <div class="text-medium-emphasis text-body-2 mt-1">
+                                    提供民眾對於樹木健檢的專業知識，讓公眾對自身所處的環境能有更深的了解​
+                                </div>
+                            </div>
+                        </v-card-text>
+                    </v-card>
+                </div>
+                <div>
+                    <div class="text-h6 font-weight-bold mb-3 mt-5">5W1H​</div>
+                    <v-card rounded="xl" elevation="1">
+                        <img src="/mytree/5W1H.jpg" alt="5W1H" style="width:95%;height:100%;object-fit:cover"
+                            class="mt-5 mx-3 mb-6" />
+                    </v-card>
+                </div>
+            </div>
+        </section>
+
+        <section id="system" class="mb-10 pt-10">
+            <div class="text-h5 font-weight-bold mb-3">System Framework & Prototype​</div>
+            <div class="text-h6 font-weight-bold mb-3 mt-5">System Framework​</div>
+            <img src="/mytree/SystemFramework.jpg" alt="SystemFramework" style="width:95%;height:100%;object-fit:cover"
+                class="mx-3 mb-6" />
+            <div class="text-h6 font-weight-bold mb-3 mt-5">Prototype</div>
+            <img src="/mytree/Prototype.jpg" alt="Prototype" style="width:95%;height:100%;object-fit:cover"
+                class="mx-3 mb-6" />
+        </section>
+
+        <section id="user" class="mb-10 pt-10">
+            <div class="text-h5 font-weight-bold mb-3">使用者旅程地圖​</div>
+            <div class="text-h6 font-weight-bold mb-3 mt-5">體驗​</div>
+            <img src="/mytree/experience.jpg" alt="experience" style="width:95%;height:100%;object-fit:cover"
+                class="mx-3 mb-6" />
+            <div class="text-h6 font-weight-bold mb-3 mt-5">機會</div>
+            <img src="/mytree/opportunity.jpg" alt="opportunity" style="width:95%;height:100%;object-fit:cover"
+                class="mx-3 mb-6" />
+        </section>
+
+        <section id="ia" class="mb-10">
+            <v-container>
+                <div class="text-h6 font-weight-bold mb-3">專案介紹影片</div>
+                <YouTubeEmbed id="bgRJP5or4wM" />
+            </v-container>
+        </section>
+
+
+        <!-- 頁面範例（可點放大） -->
+        <section id="examples" class="mb-10 pt-10">
+            <div class="text-h5 font-weight-bold mb-3">頁面介紹</div>
+            <div class="pb-3 text-h6">首頁</div>
+            <section v-for="(s, i) in homeSections" :key="i" class="mb-12">
+                <!-- 需要調整左右比例，可在這裡覆寫 CSS 變數（每段可不同） -->
+                <SideNotesRightImage :src="s.src" :ratio="s.ratio" :notes="s.notes" :imageSide="s.imageSide"
+                    :class="s.class" :style="s.style" />
+            </section>
+            <div class="pb-3 text-h6">主題月刊</div>
+            <section v-for="(s, i) in themeSections" :key="i" class="mb-12">
+                <!-- 需要調整左右比例，可在這裡覆寫 CSS 變數（每段可不同） -->
+                <SideNotesRightImage :src="s.src" :ratio="s.ratio" :notes="s.notes" :imageSide="s.imageSide"
+                    :class="s.class" :style="s.style" />
+            </section>
+            <div class="pb-3 text-h6">作品</div>
+            <section v-for="(s, i) in artSections" :key="i" class="mb-12">
+                <!-- 需要調整左右比例，可在這裡覆寫 CSS 變數（每段可不同） -->
+                <SideNotesRightImage :src="s.src" :ratio="s.ratio" :notes="s.notes" :imageSide="s.imageSide"
+                    :class="s.class" :style="s.style" />
+            </section>
+        </section>
+
+        <!-- Mockups（可放大輪播） -->
+        <section id="mockups" class="mb-10">
+            <div class="text-h5 font-weight-bold mb-3">Mockups</div>
+            <v-row dense>
+                <v-col v-for="(m, i) in mockups" :key="i" cols="12" sm="6" md="4">
+                    <v-img :src="m" height="220" cover class="rounded-lg" @click="openLightbox(mockups, i)" />
+                </v-col>
+            </v-row>
+        </section>
+
+        <v-btn variant="text" :to="{ name: 'projects' }">← 回到作品</v-btn>
+
+        <!-- Dialogs -->
+        <v-dialog v-model="hotspot.open" max-width="420" :scrim="false">
+            <v-card v-if="hotspot.active">
+                <v-card-title class="text-subtitle-1 font-weight-bold">{{ hotspot.active.title }}</v-card-title>
+                <v-card-text class="text-body-2 text-medium-emphasis" style="white-space: pre-line;">
+                    {{ hotspot.active.text }}
+                </v-card-text>
+            </v-card>
+        </v-dialog>
+
+        <v-dialog v-model="lightbox.open" max-width="1200px">
+            <v-card class="pa-2">
+                <v-carousel v-model="lightbox.index" hide-delimiter-background>
+                    <v-carousel-item v-for="(img, i) in lightbox.list" :key="i">
+                        <v-img :src="img" height="70vh" cover />
+                    </v-carousel-item>
+                </v-carousel>
+            </v-card>
+        </v-dialog>
+    </v-container>
+</template>
+
+<script setup>
+import ComparisonTable from '../components/ComparisonTable.vue'
+import PositioningMap from '../components/PositioningMap.vue'
+import YouTubeEmbed from '../components/YouTubeEmbed.vue'
+
+const columns = [
+    { key: 'tw', label: '台灣巨大樹地圖' },
+    { key: 'seek', label: 'Seek by iNaturalist' },
+    { key: 'treeva', label: 'treeva' },
+    { key: 'us', label: '我們' },
+]
+
+const rows = [
+    { key: 'purpose', label: '用途' },
+    { key: 'audience', label: '使用群體' },
+    { key: 'platform', label: '平台' },
+    { key: 'feature', label: '特色' },
+    { key: 'limit', label: '限制' },
+]
+
+const data = {
+    purpose: {
+        tw: '搜尋全台灣樹高65m以上的巨木',
+        seek: '利用影像辨別動植物種類',
+        treeva: '樹木紀錄、木材堆積測量',
+        us: '協助進行樹木健檢',
+    },
+    audience: {
+        tw: '一般民眾',
+        seek: '一般民眾',
+        treeva: '森林管理人員或樹木擁有者',
+        us: '一般民眾',
+    },
+    platform: {
+        tw: 'website',
+        seek: 'iOS、Android',
+        treeva: 'Android',
+        us: 'Android、iOS',
+    },
+    feature: {
+        tw: '藉由網路民眾的力量來進行巨木調查',
+        seek: '搭配遊戲化體驗，讓使用者在無意間進行公民科學',
+        treeva: '簡化彼此溝通的成本，讓工作更加迅速',
+        us: '藉由遊戲化體驗吸引使用者進行樹木健檢，同時達到環保及公民科學目的。',
+    },
+    limit: {
+        tw: '台灣地區',
+        seek: '全球地區',
+        treeva: '德國地區',
+        us: '台灣地區',
+    },
+}
+
+const items = [
+    // 近似你的圖上位置：x=-100..100、y=-100..100
+    { label: 'Seek by iNaturalist', img: '/mytree/seek.jpg', x: -70, y: 40, size: 64 },
+    { label: '找樹的人', img: '/mytree/findtree.jpg', x: -40, y: -40, size: 60 },
+    { label: 'MyTree', img: '/mytree/mytree.jpg', x: 0, y: -80, size: 68 },
+    { label: 'treeva', img: '/mytree/treeva.jpg', x: 75, y: -40, size: 60 },
+]
+
+
+
+
+import SiteIaDiagram from '../components/SiteIaDiagram.vue'
+
+const iaItems = [
+    { title: '首頁', desc: '項目總攬，帶出工作室整體的視覺氛圍' },
+    { title: '月刊', desc: '每月一篇特別主題內容及重作等供使用者發掘' },
+    { title: '藝術家', desc: '目前有三位藝術家，等待使用者了解個別故事' },
+    { title: '藝術創作', desc: '由藝術家創作的各式作品，供使用者欣賞與探討' },
+    { title: '藝術商品', desc: '延伸的藝術商品等，供使用者選購' },
+    { title: '發展故事', desc: '關於我們工作室的發展歷程' },
+    { title: '聯絡我們', desc: '有任何問題歡迎使用此頁面來聯繫' },
+    { title: 'FAQ', desc: '快速查找問題解決方式' },
+]
+
+import { ref, onMounted, onBeforeUnmount } from 'vue'
+
+/* 章節列表（上方 chip 用） */
+const sections = [
+    { id: 'intro', label: '現況分析' },
+    { id: 'system', label: '系統' },
+    { id: 'user', label: '使用者旅程地圖' },
+    { id: 'ia', label: '資訊架構' },
+    { id: 'examples', label: '頁面介紹' },
+    { id: 'mockups', label: 'Mockups' },
+]
+
+/* 色票 */
+const colors = [{ hex: '#131315' }, { hex: '#FFFFFF' }, { hex: '#FBED21' }, { hex: '#2F2F30' }]
+const copied = ref('')
+const copy = async (txt) => {
+    try { await navigator.clipboard.writeText(txt); copied.value = txt; setTimeout(() => copied.value = '', 1400) } catch { }
+}
+
+/* Lightbox */
+const mockups = ['/hopeart/mockup-1.jpg', '/hopeart/mockup-2.jpg']
+const lightbox = ref({ open: false, list: [], index: 0 })
+const openLightbox = (list, start = 0) => { lightbox.value = { open: true, list, index: start } }
+
+/* 熱點對話框 */
+const hotspot = ref({ open: false, active: null })
+const openSpot = (s) => { hotspot.value = { open: true, active: s } }
+
+/* 追蹤 hash（讓上方 chip 高亮） */
+const hash = ref(window.location.hash || '')
+const onHash = () => { hash.value = window.location.hash }
+onMounted(() => window.addEventListener('hashchange', onHash))
+onBeforeUnmount(() => window.removeEventListener('hashchange', onHash))
+
+/* 捲動到章節 */
+const scrollTo = (id) => {
+    const el = document.getElementById(id)
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+}
+
+import SideNotesRightImage from '../components/SideNotesRightImage.vue'
+
+/**
+ * 這裡集中維護所有文案與座標（y：對應圖片垂直百分比）
+ * 想新增段落就再 push 一個物件；想改文案就在這裡改。
+ */
+const homeSections = [
+    {
+        // 段落 1：圖在右、兩段註解
+        src: '/hopeart/homepage-01.jpg',
+        ratio: '16/9',
+        imageSide: 'right',
+        notes: [
+            { y: 22, x: -130, text: '使用動態圖片增加網頁多樣性' }, // 這條線往右推 16px
+            { y: 65, x: -30, text: '主題月刊使用黑底以凸顯作品及營造寧靜神祕感' },
+        ],
+        style: { '--left-w': '46%', '--img-w': '48%' } // 可選：段落級調整
+    },
+    {
+        // 段落 2：反過來，圖在左、單段註解
+        src: '/hopeart/homepage-02.jpg',
+        ratio: '16/9',
+        imageSide: 'left',
+        notes: [
+            { y: 40, x: 20, text: '關於 HOPE Art 主要以畫面分割的方式來展現特例性' }, // 這條線往右推 16px
+        ],
+        style: { '--left-w': '40%', '--img-w': '50%' } // 可選：段落級調整
+    }
+]
+const themeSections = [
+    {
+        src: '/hopeart/theme01.jpg',
+        ratio: '3/4',
+        imageSide: 'left',
+        notes: [
+            { y: 26, text: '依據主題的不同設計對應的版型，以展現藝術家最核心的創作理念' },
+        ],
+        style: { '--left-w': '44%', '--img-w': '48%' },
+    },
+]
+
+</script>
+
+<style scoped>
+.comparison .comp-table {
+    border: 2px solid var(--v-theme-outline);
+    /* 外框粗線 */
+    border-radius: 12px;
+    overflow: hidden;
+    /* 圓角裁切 */
+}
+
+.comparison :deep(thead th) {
+    background: rgba(0, 0, 0, .04);
+}
+
+@media (prefers-color-scheme: dark) {
+    .comparison :deep(thead th) {
+        background: rgba(255, 255, 255, .04);
+    }
+}
+
+.two-col {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* 手機單欄 */
+    gap: 16px 24px;
+}
+
+@media (min-width: 960px) {
+
+    /* md↑ 兩欄 */
+    .two-col {
+        grid-template-columns: 1fr 4fr;
+        /* ← 比例：左:右 = 2:1，改成 3fr 2fr 就是 3:2 */
+        align-items: start;
+    }
+}
+
+.two-col11 {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* 手機單欄 */
+    gap: 16px 24px;
+}
+
+@media (min-width: 960px) {
+
+    /* md↑ 兩欄 */
+    .two-col11 {
+        grid-template-columns: 1fr 1fr;
+        /* ← 比例：左:右 = 2:1，改成 3fr 2fr 就是 3:2 */
+        align-items: start;
+    }
+}
+
+.sticky-nav {
+    position: sticky;
+    top: 64px;
+    z-index: 10;
+    padding: 8px 12px;
+    backdrop-filter: blur(8px);
+    background: rgba(255, 255, 255, .85);
+}
+
+/* 熱點 */
+.hotspot-layer {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.hotspot {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    pointer-events: auto;
+    border: 0;
+    background: #fff;
+    color: #1e293b;
+    border-radius: 999px;
+    width: 28px;
+    height: 28px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, .18);
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+}
+
+/* 色票 */
+.swatch {
+    cursor: pointer;
+    width: 92px;
+}
+
+.swatch .chip {
+    height: 48px;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, .08);
+}
+
+.swatch .label {
+    font-size: 12px;
+    margin-top: 6px;
+    text-align: center
+}
+
+.font-sample {
+    padding: 10px 0
+}
+
+.font-sample.noto {
+    font-family: 'Noto Sans', system-ui, -apple-system, sans-serif;
+}
+
+.font-sample.georgia {
+    font-family: Georgia, 'Times New Roman', serif;
+    letter-spacing: .5px;
+}
+</style>

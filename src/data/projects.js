@@ -67,14 +67,16 @@ export const projects = [
       slug: 'ui-mytree',
       category: 'ui',
       title: 'My Tree',
+      routeName: 'project-mytree',
       subtitle: '樹木調查 / 公民科學',
-      base: '/img/ui-mytree',
+      base: '/img/myTreeApp',
       alt: 'My Tree App',
       tags: ['UI', 'App', 'Design System'],
       description: `資訊架構與關鍵流程…`,
       content: [
         { type: 'h3', text: '研究目標' },
       ]
+      
     },
     /*{
       slug: 'ui-checkin',
@@ -90,6 +92,7 @@ export const projects = [
       slug: 'ui-hopeart',
       category: 'ui',
       title: 'HopeArt 形象官網',
+      routeName: 'project-mytree',
       subtitle: '品牌形象 / 網站',
       base: '/img/ui-hopeart',
       alt: 'HopeArt 官網',
