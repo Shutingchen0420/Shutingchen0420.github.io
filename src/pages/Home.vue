@@ -44,10 +44,11 @@ import { projects } from '../data/projects'
 
 const cards = projects.slice(0, 3)
 
-const linkTo = (item) =>
-  item.routeName
-    ? { name: item.routeName }                                  // 走自訂頁
-    : { name: 'project-detail', params: { slug: item.slug } }   // 走共用頁
+const linkTo = (item) => {
+  if (item.slug === 'ui-hopeart') return { name: 'project-hopeart' }
+  if (item.slug === 'ui-mytree')  return { name: 'project-mytree' }
+  return { name: 'project-detail', params: { slug: item.slug } }
+}
 
 </script>
 

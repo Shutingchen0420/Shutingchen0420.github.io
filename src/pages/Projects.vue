@@ -100,17 +100,11 @@ onBeforeUnmount(() => window.removeEventListener('hashchange', onHashChange))
 
 const scrollTop = () => window.scrollTo({ top: 0, behavior: 'smooth' })
 
-// ✅ 依 slug 決定導向：只有 ui-hopeart 走專屬頁，其他走共用詳細頁
-const routeFor = (p) => (
-  p.slug === 'ui-hopeart'
-    ? { name: 'project-hopeart' }
-    : { name: 'project-detail', params: { slug: p.slug } }
-)
-
-const linkTo = (item) =>
-  item.routeName
-    ? { name: item.routeName }
-    : { name: 'project-detail', params: { slug: item.slug } }
+const linkTo = (item) => {
+  if (item.slug === 'ui-hopeart') return { name: 'project-hopeart' }
+  if (item.slug === 'ui-mytree')  return { name: 'project-mytree' }
+  return { name: 'project-detail', params: { slug: item.slug } }
+}
 </script>
 
 <style scoped>

@@ -144,7 +144,7 @@
         <section id="ia" class="mb-10">
             <v-container>
                 <div class="text-h6 font-weight-bold mb-3">專案介紹影片</div>
-                <YouTubeEmbed id="bgRJP5or4wM" />
+                <YouTubeEmbed id="bgRJP5or4wM" height="clamp(240px, 40vw, 560px)" maxWidth="1100px" />
             </v-container>
         </section>
 
@@ -154,19 +154,16 @@
             <div class="text-h5 font-weight-bold mb-3">頁面介紹</div>
             <div class="pb-3 text-h6">首頁</div>
             <section v-for="(s, i) in homeSections" :key="i" class="mb-12">
-                <!-- 需要調整左右比例，可在這裡覆寫 CSS 變數（每段可不同） -->
                 <SideNotesRightImage :src="s.src" :ratio="s.ratio" :notes="s.notes" :imageSide="s.imageSide"
                     :class="s.class" :style="s.style" />
             </section>
             <div class="pb-3 text-h6">主題月刊</div>
             <section v-for="(s, i) in themeSections" :key="i" class="mb-12">
-                <!-- 需要調整左右比例，可在這裡覆寫 CSS 變數（每段可不同） -->
                 <SideNotesRightImage :src="s.src" :ratio="s.ratio" :notes="s.notes" :imageSide="s.imageSide"
                     :class="s.class" :style="s.style" />
             </section>
             <div class="pb-3 text-h6">作品</div>
             <section v-for="(s, i) in artSections" :key="i" class="mb-12">
-                <!-- 需要調整左右比例，可在這裡覆寫 CSS 變數（每段可不同） -->
                 <SideNotesRightImage :src="s.src" :ratio="s.ratio" :notes="s.notes" :imageSide="s.imageSide"
                     :class="s.class" :style="s.style" />
             </section>
@@ -210,6 +207,7 @@
 import ComparisonTable from '../components/ComparisonTable.vue'
 import PositioningMap from '../components/PositioningMap.vue'
 import YouTubeEmbed from '../components/YouTubeEmbed.vue'
+import { ref, onMounted, onBeforeUnmount } from 'vue'
 
 const columns = [
     { key: 'tw', label: '台灣巨大樹地圖' },
@@ -260,32 +258,12 @@ const data = {
 }
 
 const items = [
-    // 近似你的圖上位置：x=-100..100、y=-100..100
     { label: 'Seek by iNaturalist', img: '/mytree/seek.jpg', x: -70, y: 40, size: 64 },
     { label: '找樹的人', img: '/mytree/findtree.jpg', x: -40, y: -40, size: 60 },
     { label: 'MyTree', img: '/mytree/mytree.jpg', x: 0, y: -80, size: 68 },
     { label: 'treeva', img: '/mytree/treeva.jpg', x: 75, y: -40, size: 60 },
 ]
 
-
-
-
-import SiteIaDiagram from '../components/SiteIaDiagram.vue'
-
-const iaItems = [
-    { title: '首頁', desc: '項目總攬，帶出工作室整體的視覺氛圍' },
-    { title: '月刊', desc: '每月一篇特別主題內容及重作等供使用者發掘' },
-    { title: '藝術家', desc: '目前有三位藝術家，等待使用者了解個別故事' },
-    { title: '藝術創作', desc: '由藝術家創作的各式作品，供使用者欣賞與探討' },
-    { title: '藝術商品', desc: '延伸的藝術商品等，供使用者選購' },
-    { title: '發展故事', desc: '關於我們工作室的發展歷程' },
-    { title: '聯絡我們', desc: '有任何問題歡迎使用此頁面來聯繫' },
-    { title: 'FAQ', desc: '快速查找問題解決方式' },
-]
-
-import { ref, onMounted, onBeforeUnmount } from 'vue'
-
-/* 章節列表（上方 chip 用） */
 const sections = [
     { id: 'intro', label: '現況分析' },
     { id: 'system', label: '系統' },
@@ -295,17 +273,12 @@ const sections = [
     { id: 'mockups', label: 'Mockups' },
 ]
 
-/* 色票 */
-const colors = [{ hex: '#131315' }, { hex: '#FFFFFF' }, { hex: '#FBED21' }, { hex: '#2F2F30' }]
-const copied = ref('')
-const copy = async (txt) => {
-    try { await navigator.clipboard.writeText(txt); copied.value = txt; setTimeout(() => copied.value = '', 1400) } catch { }
-}
-
 /* Lightbox */
 const mockups = ['/hopeart/mockup-1.jpg', '/hopeart/mockup-2.jpg']
 const lightbox = ref({ open: false, list: [], index: 0 })
 const openLightbox = (list, start = 0) => { lightbox.value = { open: true, list, index: start } }
+
+
 
 /* 熱點對話框 */
 const hotspot = ref({ open: false, active: null })
@@ -323,12 +296,9 @@ const scrollTo = (id) => {
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
 }
 
-import SideNotesRightImage from '../components/SideNotesRightImage.vue'
+ 
 
-/**
- * 這裡集中維護所有文案與座標（y：對應圖片垂直百分比）
- * 想新增段落就再 push 一個物件；想改文案就在這裡改。
- */
+
 const homeSections = [
     {
         // 段落 1：圖在右、兩段註解
