@@ -47,7 +47,6 @@
             </v-row>
         </section>
 
-        <!-- 定義問題與策略（熱點圖） -->
         <section id="strategy" class="mb-10">
             <div class="text-h5 font-weight-bold mb-3 mt-5">現況分析/確定目標</div>
             <div class="pb-3 text-h6">面臨的問題</div>
@@ -152,31 +151,139 @@
         <!-- 頁面範例（可點放大） -->
         <section id="examples" class="mb-10 pt-10">
             <div class="text-h5 font-weight-bold mb-3">頁面介紹</div>
-            <div class="pb-3 text-h6">首頁</div>
-            <section v-for="(s, i) in homeSections" :key="i" class="mb-12">
-                <SideNotesRightImage :src="s.src" :ratio="s.ratio" :notes="s.notes" :imageSide="s.imageSide"
-                    :class="s.class" :style="s.style" />
-            </section>
-            <div class="pb-3 text-h6">主題月刊</div>
-            <section v-for="(s, i) in themeSections" :key="i" class="mb-12">
-                <SideNotesRightImage :src="s.src" :ratio="s.ratio" :notes="s.notes" :imageSide="s.imageSide"
-                    :class="s.class" :style="s.style" />
-            </section>
-            <div class="pb-3 text-h6">作品</div>
-            <section v-for="(s, i) in artSections" :key="i" class="mb-12">
-                <SideNotesRightImage :src="s.src" :ratio="s.ratio" :notes="s.notes" :imageSide="s.imageSide"
-                    :class="s.class" :style="s.style" />
-            </section>
+            <div class="ml-6">
+                <div class="pb-3 text-h6">登入註冊及首頁</div>
+            </div>
+            <p class="text-subtitle-1 text-medium-emphasis mb-3 ml-6">
+                首頁有最新關於數目健檢的資訊以及進行的注意事項和小知識
+            </p>
+            <div rounded="xl" elevation="1">
+                <img src="/mytree/login.png" alt="登入" style="width:80%;height:80%;object-fit:cover" />
+            </div>
+            <div class="ml-6">
+                <div class="pb-1 pt-2 text-h6">樹木健檢</div>
+            </div>
+            <p class="text-subtitle-1 text-medium-emphasis ml-6">
+                將原本是紙本進行的健檢資料改為使用電子的方式紀錄，更可以完整的統整以及進行資料傳輸給專家進行救治
+            </p>
+            <p class="text-subtitle-1 text-medium-emphasis ml-6">
+                Step1. 拍照上傳樹木目前的模樣，可拍攝多張不同角度的照片
+            </p>
+            <p class="text-subtitle-1 text-medium-emphasis ml-6">
+                Step2. 填寫樹木基本資料，位置系統會自動帶入
+            </p>
+            <p class="text-subtitle-1 text-medium-emphasis ml-6">
+                Step3. 填寫樹木詳細資料，若不確定如何辨別可點擊提示按鈕
+                <br><span class="text-red">若不確定如何辨別可點擊提示按鈕，將會跳出提示框教您如何辨識</span>
+            </p>
+            <p class="text-subtitle-1 text-medium-emphasis mb-3 ml-6">
+                Step4. 最後會顯示樹木的健康狀況
+            </p>
+            <div rounded="xl" elevation="1">
+                <img src="/mytree/tree.png" alt="樹木健檢" style="width:80%;height:80%;object-fit:cover" />
+            </div>
+            <p class="text-subtitle-1 text-medium-emphasis mb-3 ml-6">
+                <span class="text-red">根據樹木健康的評分會顯示3種不同的狀態</span>
+            </p>
+            <div rounded="xl" elevation="1">
+                <img src="/mytree/threeType.png" alt="三種狀態" style="width:80%;height:80%;object-fit:cover" />
+            </div>
+            <div class="ml-6">
+                <div class="pb-1 pt-2 text-h6">歷史紀錄</div>
+            </div>
+            <p class="text-subtitle-1 text-medium-emphasis mb-3 ml-6">
+                使用集點卡的形式來紀錄每次的紀錄，點進去會有每次的詳細內容
+            </p>
+            <div rounded="xl" elevation="1">
+                <img src="/mytree/history.png" alt="歷史紀錄" style="width:80%;height:80%;object-fit:cover" />
+            </div>
+            <div class="ml-6">
+                <div class="pb-1 pt-2 text-h6">遊戲</div>
+            </div>
+            <p class="text-subtitle-1 text-medium-emphasis ml-6">
+                結合遊戲化體驗讓使用者能更加願意協助進行樹木健檢，其中分成三部分
+            </p>
+            <p class="text-subtitle-1 text-medium-emphasis ml-6">
+                成長小樹：會根據每次進行的樹木健檢獲得的分數換成肥料使小樹成長
+            </p>
+            <p class="text-subtitle-1 text-medium-emphasis ml-6">
+                排行榜：可以結伴一起進行，大家一起比拼進行的數量
+            </p>
+            <p class="text-subtitle-1 text-medium-emphasis mb-3 ml-6">
+                徽章：會根據您進行的內容來獲得相對性的徽章
+            </p>
+            <div rounded="xl" elevation="1">
+                <img src="/mytree/game.png" alt="登入" style="width:80%;height:80%;object-fit:cover" />
+            </div>
         </section>
 
-        <!-- Mockups（可放大輪播） -->
         <section id="mockups" class="mb-10">
-            <div class="text-h5 font-weight-bold mb-3">Mockups</div>
-            <v-row dense>
-                <v-col v-for="(m, i) in mockups" :key="i" cols="12" sm="6" md="4">
-                    <v-img :src="m" height="220" cover class="rounded-lg" @click="openLightbox(mockups, i)" />
-                </v-col>
-            </v-row>
+            <div class="text-h5 font-weight-bold mb-3">使用者測試計畫</div>
+            <div class="two-col11">
+                <div>
+                    <div class="text-h6 font-weight-bold mb-3 mt-5">目的</div>
+                    <v-card class="h-100 d-flex flex-column" rounded="xl" elevation="1">
+                        <v-card-text class="flex-grow-1">
+                        <div class="mb-4 mt-4 ml-4 mr-4">
+                            <div class="font-weight-medium">
+                                測試 My Tree 應用程式在實際使用中的便利性、功能性和使用者滿意度。​
+                            </div>
+                        </div>
+                    </v-card-text>
+                    </v-card>
+                </div>
+                <div>
+                    <div class="text-h6 font-weight-bold mb-3 mt-5">範圍</div>
+                    <v-card rounded="xl" elevation="1" class="h-100 d-flex flex-column">
+                        <v-card-text class="flex-grow-1">
+                        <div class="mb-4 mt-4 ml-4 mr-4">
+                            <div class="font-weight-medium">
+                                年齡範圍：​18歲以上​​
+                            </div>
+                            <div class="font-weight-medium">
+                                一般民眾​
+                            </div>
+                            <div class="font-weight-medium">
+                                擁有智能手機的使用經驗​
+                            </div>
+                            <div class="font-weight-medium">
+                                非資訊科技專業背景​
+                            </div>
+                        </div>
+                    </v-card-text>
+                    </v-card>
+                </div>
+            </div>
+            <div class="two-col11">
+                <div>
+                    <div class="text-h6 font-weight-bold mb-3 mt-5">設計方案​</div>
+                    <v-card rounded="xl" elevation="1">
+                        <v-card-text>
+                            <div class="mb-4 mt-1">
+                                <div class="font-weight-medium">
+                                    結合遊戲化體驗​
+                                </div>
+                                <div class="text-medium-emphasis text-body-2 mt-1">
+                                    設計養成樹木和使用者產生連結，以及獎牌收集或是積分排行榜，產生正回饋，讓使用者對產品的黏著度提高，進行公民科學時可以覺得開心​
+                                </div>
+                                <div class="font-weight-medium mt-3">
+                                    提供專業知識​
+                                </div>
+                                <div class="text-medium-emphasis text-body-2 mt-1">
+                                    提供民眾對於樹木健檢的專業知識，讓公眾對自身所處的環境能有更深的了解​
+                                </div>
+                            </div>
+                        </v-card-text>
+                    </v-card>
+                </div>
+                <div>
+                    <div class="text-h6 font-weight-bold mb-3 mt-5">5W1H​</div>
+                    <v-card rounded="xl" elevation="1">
+                        <img src="/mytree/5W1H.jpg" alt="5W1H" style="width:95%;height:100%;object-fit:cover"
+                            class="mt-5 mx-3 mb-6" />
+                    </v-card>
+                </div>
+            </div>
         </section>
 
         <v-btn variant="text" :to="{ name: 'projects' }">← 回到作品</v-btn>
@@ -270,7 +377,7 @@ const sections = [
     { id: 'user', label: '使用者旅程地圖' },
     { id: 'ia', label: '資訊架構' },
     { id: 'examples', label: '頁面介紹' },
-    { id: 'mockups', label: 'Mockups' },
+    { id: 'mockups', label: '使用者測試' },
 ]
 
 /* Lightbox */
@@ -296,7 +403,7 @@ const scrollTo = (id) => {
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
 }
 
- 
+
 
 
 const homeSections = [
@@ -349,6 +456,10 @@ const themeSections = [
     background: rgba(0, 0, 0, .04);
 }
 
+.red-text {
+    color: red;
+}
+
 @media (prefers-color-scheme: dark) {
     .comparison :deep(thead th) {
         background: rgba(255, 255, 255, .04);
@@ -386,6 +497,21 @@ const themeSections = [
         grid-template-columns: 1fr 1fr;
         /* ← 比例：左:右 = 2:1，改成 3fr 2fr 就是 3:2 */
         align-items: start;
+    }
+}
+
+.three-col {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    /* 三欄 */
+    gap: 16px;
+    /* 欄間距 */
+}
+
+/* 響應式：手機一欄 */
+@media (max-width: 600px) {
+    .three-col {
+        grid-template-columns: 1fr;
     }
 }
 
