@@ -224,64 +224,102 @@
                     <div class="text-h6 font-weight-bold mb-3 mt-5">目的</div>
                     <v-card class="h-100 d-flex flex-column" rounded="xl" elevation="1">
                         <v-card-text class="flex-grow-1">
-                        <div class="mb-4 mt-4 ml-4 mr-4">
-                            <div class="font-weight-medium">
-                                測試 My Tree 應用程式在實際使用中的便利性、功能性和使用者滿意度。​
-                            </div>
-                        </div>
-                    </v-card-text>
-                    </v-card>
-                </div>
-                <div>
-                    <div class="text-h6 font-weight-bold mb-3 mt-5">範圍</div>
-                    <v-card rounded="xl" elevation="1" class="h-100 d-flex flex-column">
-                        <v-card-text class="flex-grow-1">
-                        <div class="mb-4 mt-4 ml-4 mr-4">
-                            <div class="font-weight-medium">
-                                年齡範圍：​18歲以上​​
-                            </div>
-                            <div class="font-weight-medium">
-                                一般民眾​
-                            </div>
-                            <div class="font-weight-medium">
-                                擁有智能手機的使用經驗​
-                            </div>
-                            <div class="font-weight-medium">
-                                非資訊科技專業背景​
-                            </div>
-                        </div>
-                    </v-card-text>
-                    </v-card>
-                </div>
-            </div>
-            <div class="two-col11">
-                <div>
-                    <div class="text-h6 font-weight-bold mb-3 mt-5">設計方案​</div>
-                    <v-card rounded="xl" elevation="1">
-                        <v-card-text>
-                            <div class="mb-4 mt-1">
+                            <div class="mb-9 mt-8 ml-4 mr-4">
                                 <div class="font-weight-medium">
-                                    結合遊戲化體驗​
-                                </div>
-                                <div class="text-medium-emphasis text-body-2 mt-1">
-                                    設計養成樹木和使用者產生連結，以及獎牌收集或是積分排行榜，產生正回饋，讓使用者對產品的黏著度提高，進行公民科學時可以覺得開心​
-                                </div>
-                                <div class="font-weight-medium mt-3">
-                                    提供專業知識​
-                                </div>
-                                <div class="text-medium-emphasis text-body-2 mt-1">
-                                    提供民眾對於樹木健檢的專業知識，讓公眾對自身所處的環境能有更深的了解​
+                                    測試 My Tree 應用程式在實際使用中的便利性、功能性和使用者滿意度。​
                                 </div>
                             </div>
                         </v-card-text>
                     </v-card>
                 </div>
                 <div>
-                    <div class="text-h6 font-weight-bold mb-3 mt-5">5W1H​</div>
-                    <v-card rounded="xl" elevation="1">
-                        <img src="/mytree/5W1H.jpg" alt="5W1H" style="width:95%;height:100%;object-fit:cover"
-                            class="mt-5 mx-3 mb-6" />
+                    <div class="text-h6 font-weight-bold mb-3 mt-5">範圍</div>
+                    <v-card rounded="xl" elevation="1" class="h-100 d-flex flex-column">
+                        <v-card-text class="flex-grow-1">
+                            <div class="mb-4 mt-4 ml-4 mr-4">
+                                <div class="font-weight-medium">
+                                    年齡範圍：​18歲以上​​
+                                </div>
+                                <div class="font-weight-medium">
+                                    一般民眾​
+                                </div>
+                                <div class="font-weight-medium">
+                                    擁有智能手機的使用經驗​
+                                </div>
+                                <div class="font-weight-medium">
+                                    非資訊科技專業背景​
+                                </div>
+                            </div>
+                        </v-card-text>
                     </v-card>
+                </div>
+            </div>
+            <div class="two-col11">
+                <div>
+                    <div class="text-h6 font-weight-bold mb-3 mt-5">測試環境​</div>
+                    <v-card rounded="xl" elevation="1">
+                        <v-card-text>
+                            <div class="mb-7 mt-6">
+                                <div class="font-weight-medium">
+                                    使用者將在自然環境中進行測試，如校園、公園或住宅區綠地，以確保測試的實際應用性和真實反映。​
+                                </div>
+                            </div>
+                        </v-card-text>
+                    </v-card>
+                </div>
+                <div>
+                    <div class="text-h6 font-weight-bold mb-3 mt-5">測試目標</div>
+                    <v-card rounded="xl" elevation="1">
+                        <v-card-text>
+                            <div class="mb-4 mt-4">
+                                <div class="font-weight-medium">
+                                    - 評估應用程式的整體用戶體驗和介面設計的直觀性
+                                    <br>- 驗證功能性，特別是樹木健康評估的準確性
+                                    <br>- 收集使用者對應用程式的反饋，用於未來改進
+                                </div>
+                            </div>
+                        </v-card-text>
+                    </v-card>
+                </div>
+            </div>
+            <div class="text-h6 font-weight-bold mb-3 mt-12">測試結果​</div>
+            <div class="font-weight-medium mt-3">
+                測試人數：六人​
+                <br>SUS平均分數77.5分​
+            </div>
+            <img src="/mytree/sus.png" alt="sus" style="width:80%;height:80%;object-fit:cover" />
+
+            <div class="text-h6 font-weight-bold mb-3 mt-12">測試總結​</div>
+            <div class="two-col11">
+                <div>
+                    <div class="font-weight-medium mt-3">
+                        特別感觸的功能：​
+                        <br>使用者對於樹木健檢界面在樹木外觀的選項描述表示直觀易懂，並且有圖片輔助解釋選項。遊戲功能方面，表明這些功能增加了互動性、趣味性和再次使用的意願。​
+                    </div>
+                </div>
+                <div>
+                    <img ml-10 src="/mytree/feedback.png" alt="感觸功能" style="width:70%;height:70%;object-fit:cover" />
+                </div>
+            </div>
+            <div class="two-col11">
+                <div>
+                    <img src="/mytree/feedback02.png" alt="功能直觀性" style="width:80%;height:80%;object-fit:cover" />
+                </div>
+                <div class="font-weight-medium mt-3">
+                    功能直觀性：​​
+                    <br>
+                    樹木健康檢查功能普遍被認為直觀易懂，但對於樹高測量，一些用戶感到困惑，希望能有更精確的工具支持，如集成iPhone的測距儀。希望樹木健檢的時候描述改用圖片判斷的功能。​
+                </div>
+            </div>
+            <div class="two-col11">
+                <div>
+                    <div class="font-weight-medium mt-3">
+                        遊戲設計：​
+                        <br>遊戲被認為是舒壓且有趣的，會每天想使用讓小樹成長。一位使用者希望看到別人的小樹。建議有更實質的鼓勵機制、禮券兌換和公益種樹活動，以提供更實質的回饋。​
+                    </div>
+                </div>
+                <div>
+                    <img ml-10 src="/mytree/feedback03.png" alt="感觸功能" style="width:70%;height:70%;object-fit:cover" />
                 </div>
             </div>
         </section>
