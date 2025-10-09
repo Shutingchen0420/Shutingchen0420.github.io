@@ -108,30 +108,78 @@ export const projects = [
       subtitle: '主視覺 / KV 延伸',
       base: '/img/graphic-event',
       alt: '活動海報',
-      tags: ['Graphic', 'Poster'],
+      tags: ['IG/FB', 'Graphic'],
       description: `視覺主軸與色彩規劃…`,
     },
     {
       slug: 'graphic-social',
       category: 'graphic',
       title: '貼文圖',
-      subtitle: '社群素材套件',
-      base: '/img/graphic-social',
+      subtitle: '社群貼文圖製作',
+      base: '/img/igproject',
       alt: '社群貼文圖',
-      tags: ['Graphic', 'Social'],
-      description: `模板系統與套版規則…`,
+      tags: ['Graphic', 'Social', 'IG/FB'],
+      description: `進行社群貼文圖的製作`,
+      content: [
+        { type: 'h3', text: '晴光皮膚專科診所' },
+        { type: 'p',  text: '訂定貼文的整體風格，並根據企劃撰寫的文章設計一系列貼文圖' },
+        // 單張圖片（JPG only，會自動組 srcset：-400/-800/-1200）
+        { type: 'img', base: '/img/igproject', ratio: '16/9', alt: 'ig' },
+        { type: 'cta',
+          text: '想看完整的內容請點擊',
+          label: '前往晴光皮膚科',
+          href: 'https://www.instagram.com/glory_dermatologic/',
+          icon: 'mdi-open-in-new'
+        },
+
+        { type: 'hr' },
+        { type: 'h3', text: '現代內科診所' },
+        { type: 'p',  text: '訂定貼文的整體風格，並根據企劃撰寫的文章設計一系列貼文圖' },
+        // 單張圖片（JPG only，會自動組 srcset：-400/-800/-1200）
+        { type: 'img', base: '/img/igproject02', ratio: '16/9', alt: 'ig' },
+        { type: 'cta',
+          text: '想看完整的內容請點擊',
+          label: '前往現代內科診所',
+          href: 'https://www.instagram.com/xdsdgi_clinic/',
+          icon: 'mdi-open-in-new'
+        },
+
+        { type: 'hr' },
+        { type: 'h3', text: '南崁現代皮膚診所' },
+        { type: 'p',  text: '訂定貼文的整體風格，並根據企劃撰寫的文章設計一系列貼文圖' },
+        // 單張圖片（JPG only，會自動組 srcset：-400/-800/-1200）
+        { type: 'img', base: '/img/igproject03', ratio: '16/9', alt: 'ig' },
+        { type: 'cta',
+          text: '想看完整的內容請點擊',
+          label: '前往南坎現代皮膚診所',
+          href: 'https://www.instagram.com/sdskin.hair.acne/',
+          icon: 'mdi-open-in-new'
+        },
+      ],
     },
     {
       slug: 'graphic-derma-poster',
       category: 'graphic',
       title: '醫美海報',
-      subtitle: '診所活動設計',
-      base: '/img/graphic-derma',
+      subtitle: '皮膚診所活動設計',
+      base: '/img/poster',
       alt: '醫美海報',
       tags: ['Graphic', 'Poster'],
-      description: `醫療情境的視覺與版式…`,
+      description: `醫美海報設計`,
+      content: [
+        { type: 'p',  text: '訂定貼文的整體風格，並根據企劃撰寫的文章設計一系列貼文圖' },
+        // 單張圖片（JPG only，會自動組 srcset：-400/-800/-1200）
+        {
+          type: 'gallery', ratio: '16/9',
+          items: [
+            { base: '/img/poster', alt: 'ig 01' },
+            { base: '/img/poster', alt: 'ig 02' },
+            { base: '/img/poster', alt: 'ig 03' },
+          ]
+        }
+      ],
     },
-    {
+    /*{
       slug: 'graphic-hopeart',
       category: 'graphic',
       title: 'Hope Art Studio',
@@ -140,7 +188,7 @@ export const projects = [
       alt: '醫美海報',
       tags: ['明信片', 'Poster'],
       description: `醫療情境的視覺與版式…`,
-    },
+    },*/
   ]
   
   // 方便查找
