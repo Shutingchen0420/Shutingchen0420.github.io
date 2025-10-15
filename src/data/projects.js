@@ -180,6 +180,28 @@ export const projects = [
       ],
     },
     /*{
+      slug: 'graphic-businese-poster',
+      category: 'graphic',
+      title: '醫美海報',
+      subtitle: '皮膚診所活動設計',
+      base: '/img/poster',
+      alt: '醫美海報',
+      tags: ['Graphic', 'Poster'],
+      description: `醫美海報設計`,
+      content: [
+        { type: 'p',  text: '訂定貼文的整體風格，並根據企劃撰寫的文章設計一系列貼文圖' },
+        // 單張圖片（JPG only，會自動組 srcset：-400/-800/-1200）
+        {
+          type: 'gallery', ratio: '16/9',
+          items: [
+            { base: '/img/poster', alt: 'ig 01' },
+            { base: '/img/poster', alt: 'ig 02' },
+            { base: '/img/poster', alt: 'ig 03' },
+          ]
+        }
+      ],
+    },*/
+    /*{
       slug: 'graphic-hopeart',
       category: 'graphic',
       title: 'Hope Art Studio',
