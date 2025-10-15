@@ -101,7 +101,7 @@ export const projects = [
     },
   
     // 視覺設計
-    {
+    /*{
       slug: 'graphic-event-poster',
       category: 'graphic',
       title: '活動海報',
@@ -110,7 +110,8 @@ export const projects = [
       alt: '活動海報',
       tags: ['IG/FB', 'Graphic'],
       description: `視覺主軸與色彩規劃…`,
-    },
+    },*/
+    
     {
       slug: 'graphic-social',
       category: 'graphic',
